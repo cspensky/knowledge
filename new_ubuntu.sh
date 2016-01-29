@@ -47,3 +47,6 @@ apt-get -y install meld
 
 # Chrome
 apt-get -y install chromium-browser
+
+# Stop nautilis from being annoying
+gsettings set org.gnome.desktop.media-handling automount-open false
