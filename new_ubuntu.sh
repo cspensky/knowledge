@@ -50,3 +50,11 @@ apt-get -y install chromium-browser
 
 # Stop nautilis from being annoying
 gsettings set org.gnome.desktop.media-handling automount-open false
+
+# Update our sudors file
+
+echo 'Defaults  env_keep += "http_proxy"' >> /etc/sudoers
+echo 'Defaults  env_keep += "https_proxy"' >> /etc/sudoers
+echo 'Defaults  env_keep += "HTTP_PROXY"' >> /etc/sudoers
+echo 'Defaults  env_keep += "HTTPS_PROXY"' >> /etc/sudoers
+echo 'Defaults  env_keep += "PYTHONPATH"' >> /etc/sudoers
