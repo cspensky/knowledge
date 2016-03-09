@@ -21,6 +21,13 @@ apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
 apt-get -y install gnome-do
 apt-get -y install gnome-session-fallback
 apt-get -y install python-xlib
+
+# Download pywo
+wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/pywo/pywo-0.2.tar.gz
+tar -xzvf pywo-0.2.tar.gz
+mv pywo-0.2 ~/.pywo-0.2
+rm pywo-0.2.tar.gz
+
 # Add PyWo to startup
 mkdir $HOME/.config/autostart
 cat << EOF >> ~/.config/autostart/pywo.desktop
@@ -58,3 +65,8 @@ echo 'Defaults  env_keep += "https_proxy"' >> /etc/sudoers
 echo 'Defaults  env_keep += "HTTP_PROXY"' >> /etc/sudoers
 echo 'Defaults  env_keep += "HTTPS_PROXY"' >> /etc/sudoers
 echo 'Defaults  env_keep += "PYTHONPATH"' >> /etc/sudoers
+
+sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" &&
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886 &&
+sudo apt-get update -qq &&
+sudo apt-get install spotify-client
