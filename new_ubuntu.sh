@@ -12,6 +12,9 @@ apt-get -y install ssh
 apt-get -y install screen
 apt-get -y install htop iftop
 
+# Add user to dialout group for /dev/ttyUSB stuff
+sudo usermod -a -G dialout $USER
+
 # Basic developer tools
 apt-get -y install openjdk-7-jdk 
 
