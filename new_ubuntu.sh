@@ -74,3 +74,7 @@ sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" &
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886 &&
 sudo apt-get update -qq &&
 sudo apt-get install spotify-client
+
+# Change our shell
+sudo apt-get -y install fish
+chsh -s `which fish`
