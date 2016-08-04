@@ -78,3 +78,6 @@ sudo apt-get install spotify-client
 # Change our shell
 sudo apt-get -y install fish
 chsh -s `which fish`
+
+# ctf-tools stuff
+sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
