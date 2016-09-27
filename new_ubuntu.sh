@@ -11,6 +11,7 @@ apt-get -y install vim
 apt-get -y install ssh
 apt-get -y install screen
 apt-get -y install htop iftop
+apt-get -y install ipython
 
 # Add user to dialout group for /dev/ttyUSB stuff
 sudo usermod -a -G dialout $USER
