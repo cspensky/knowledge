@@ -101,3 +101,6 @@ cp /etc/i3blocks.conf ~/.i3/
 
 wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
 sudo dpkg -i playerctl-0.5.0_amd64.deb
+
+# ctf-tools stuff
+sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
