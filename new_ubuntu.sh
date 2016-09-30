@@ -12,6 +12,7 @@ apt-get -y install ssh
 apt-get -y install screen
 apt-get -y install htop iftop
 apt-get -y install ipython
+apt-get -y install nmap
 
 # Add user to dialout group for /dev/ttyUSB stuff
 sudo usermod -a -G dialout $USER
