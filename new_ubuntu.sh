@@ -13,6 +13,7 @@ apt-get -y install screen
 apt-get -y install htop iftop
 apt-get -y install ipython
 apt-get -y install nmap
+apt-get -y install tree
 
 # Add user to dialout group for /dev/ttyUSB stuff
 sudo usermod -a -G dialout $USER
@@ -22,7 +23,8 @@ apt-get -y install openjdk-8-jdk
 
 # Useful libraries
 apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
-sudo apt-get install python-usb python-serial
+sudo apt-get -y install python-usb python-serial
+sudo apt-get -y install python-matplotlib pyhton-numpy python-scipy
 
 # Window management
 apt-get -y install gnome-do
