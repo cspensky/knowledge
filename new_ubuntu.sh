@@ -58,11 +58,6 @@ sudo apt-get -y install terminator
 sudo apt-get -y install mercurial
 
 
-# Install pycharm
-sudo add-apt-repository -y ppa:mystic-mirage/pycharm
-sudo apt-get update
-sudo apt install pycharm
-
 # i3 and i3 control utils
 sudo apt-get update
 sudo apt-get install i3 i3-wm i3blocks i3lock i3status 
