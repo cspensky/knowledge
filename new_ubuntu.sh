@@ -27,29 +27,7 @@ sudo apt-get -y install python-usb python-serial
 sudo apt-get -y install python-matplotlib pyhton-numpy python-scipy
 
 # Window management
-apt-get -y install gnome-do
-apt-get -y install gnome-session-fallback
-apt-get -y install python-xlib
-
-# Download pywo
-wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/pywo/pywo-0.2.tar.gz
-tar -xzvf pywo-0.2.tar.gz
-mv pywo-0.2 ~/.pywo-0.2
-rm pywo-0.2.tar.gz
-
-# Add PyWo to startup
-mkdir $HOME/.config/autostart
-cat << EOF >> ~/.config/autostart/pywo.desktop
-[Desktop Entry]
-Type=Application
-Exec=$HOME/.pywo-0.2/pywo.py
-Name=Python Window Organizer
-Comment=Organizer to add hotkeys for tiling windows.
-Terminal=false
-Categories=Utility;Application;
-EOF
-# Set a nice wallpaper
-gsettings set org.gnome.desktop.background picture-uri file://$PWD/wallpaper.png
+apt-get -y install i3
 
 # Wireshark
 apt-get -y install wireshark
@@ -63,19 +41,8 @@ git config --global user.email "cspensky@cs.ucsb.edu"
 git config --global user.name "Chad Spensky"
 apt-get -y install meld
 
-# Chrome
-apt-get -y install chromium-browser
-
 # Stop nautilis from being annoying
 gsettings set org.gnome.desktop.media-handling automount-open false
-
-# Update our sudors file
-
-echo 'Defaults  env_keep += "http_proxy"' >> /etc/sudoers
-echo 'Defaults  env_keep += "https_proxy"' >> /etc/sudoers
-echo 'Defaults  env_keep += "HTTP_PROXY"' >> /etc/sudoers
-echo 'Defaults  env_keep += "HTTPS_PROXY"' >> /etc/sudoers
-echo 'Defaults  env_keep += "PYTHONPATH"' >> /etc/sudoers
 
 sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" &&
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886 &&
@@ -94,7 +61,7 @@ sudo apt-get -y install mercurial
 # Install pycharm
 sudo add-apt-repository -y ppa:mystic-mirage/pycharm
 sudo apt-get update
-sudo apt install pycharm-community
+sudo apt install pycharm
 
 # i3 and i3 control utils
 sudo apt-get update
@@ -105,5 +72,5 @@ cp /etc/i3blocks.conf ~/.i3/
 wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
 sudo dpkg -i playerctl-0.5.0_amd64.deb
 
-# ctf-tools stuff
+# random build things
 sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
