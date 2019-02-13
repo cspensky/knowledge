@@ -1,39 +1,39 @@
 # Make sure only root can run our script
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root" 1>&2
+if [ "$(id -u)" == "0" ]; then
+   echo "This script must not be run as root" 1>&2
    exit 1
 fi
 
 sudo apt-get update
 
 # Install basic tools
-apt-get -y install vim
-apt-get -y install ssh
-apt-get -y install screen
-apt-get -y install htop iftop
-apt-get -y install ipython
-apt-get -y install nmap
-apt-get -y install tree
+sudo apt-get -y install vim
+sudo apt-get -y install ssh
+sudo apt-get -y install screen
+sudo apt-get -y install htop iftop
+sudo apt-get -y install ipython
+sudo apt-get -y install nmap
+sudo apt-get -y install tree
 
 # Add user to dialout group for /dev/ttyUSB stuff
 sudo usermod -a -G dialout $USER
 
 # Basic developer tools
-apt-get -y install openjdk-8-jdk 
+sudo apt-get -y install openjdk-8-jdk 
 
 # Useful libraries
-apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
+sudo apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
 sudo apt-get -y install python-usb python-serial
 sudo apt-get -y install python-matplotlib pyhton-numpy python-scipy
 sudo apt-get install python-pip
 
 # Window management
-apt-get -y install i3
+sudo apt-get -y install i3
 
 # Wireshark
-apt-get -y install wireshark
-dpkg-reconfigure wireshark-common 
-usermod -a -G wireshark $USER
+sudo apt-get -y install wireshark
+sudo dpkg-reconfigure wireshark-common 
+sudo usermod -a -G wireshark $USER
 
 # Git
 sudo apt-get -y install git gitk
@@ -43,7 +43,7 @@ git config --global user.name "Chad Spensky"
 sudo apt-get -y install meld
 
 # Stop nautilis from being annoying
-gsettings set org.gnome.desktop.media-handling automount-open false
+sudo gsettings set org.gnome.desktop.media-handling automount-open false
 
 # Change our shell
 sudo apt-get -y install fish csh
@@ -58,7 +58,8 @@ sudo apt-get -y install mercurial
 sudo apt-get update
 sudo apt-get install i3 i3-wm i3blocks i3lock i3status xss-lock xautolock
 sudo apt-get install pactl xbacklight
-cp /etc/i3blocks.conf ~/.i3/
+cp config ~/.config/i3/config
+cp i3blocks.conf ~/.i3blocks.conf
 
 wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
 sudo dpkg -i playerctl-0.5.0_amd64.deb
@@ -67,11 +68,11 @@ sudo dpkg -i playerctl-0.5.0_amd64.deb
 sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
 
 # i3 Stuff
-sudo apt-get install cmake
-sudo apt-get install xbacklight
+sudo apt-get -y install cmake
+sudo apt-get -y install xbacklight
 
 # Spotify 
-snap install spotify
+sudo snap install spotify
 
 # Developer tools
 snap install clion --classic
@@ -79,7 +80,14 @@ sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
 
 # Graphics stuff
-sudo apt-get install scrot
-sudo apt-get install net-tools
+sudo apt-get install -y scrot
+sudo apt-get install -y net-tools
 
 sudo apt-get install feh
+
+git clone https://github.com/libthinkpad/dockd.git
+
+# SDA
+sudo add-apt-repository ppa:cspensky/sda
+sudo apt-get update
+sudo apt-get install sda

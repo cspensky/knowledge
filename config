@@ -152,16 +152,16 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
 }
 
 # Lock screen
 bindsym $mod+ctrl+l exec /home/cspensky/scripts/lock_and_blur.sh
 
 # Media volume controls
-bindsym XF86AudioMute exec exec amixer -D pulse set Master 1+ toggle
-bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle && pkill -RTMIN+30 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%- && pkill -RTMIN+30 i3blocks 
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+ && pkill -RTMIN+30 i3blocks 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 bindsym XF86Display exec /home/cspensky/scripts/toggle_display.sh
