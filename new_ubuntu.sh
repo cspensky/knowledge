@@ -45,11 +45,6 @@ sudo apt-get -y install meld
 # Stop nautilis from being annoying
 gsettings set org.gnome.desktop.media-handling automount-open false
 
-sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" &&
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886 &&
-sudo apt-get update -qq &&
-sudo apt-get install spotify-client
-
 # Change our shell
 sudo apt-get -y install fish csh
 chsh -s `which fish`
@@ -71,6 +66,7 @@ sudo dpkg -i playerctl-0.5.0_amd64.deb
 # random build things
 sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
 
+# i3 Stuff
 sudo apt-get install cmake
 sudo apt-get install xbacklight
 
@@ -80,10 +76,10 @@ snap install spotify
 # Developer tools
 snap install clion --classic
 sudo snap install pycharm-professional --classic
+sudo snap install slack --classic
 
+# Graphics stuff
 sudo apt-get install scrot
-
 sudo apt-get install net-tools
 
-sudo snap install slack --classic
 sudo apt-get install feh
