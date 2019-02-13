@@ -25,6 +25,7 @@ apt-get -y install openjdk-8-jdk
 apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
 sudo apt-get -y install python-usb python-serial
 sudo apt-get -y install python-matplotlib pyhton-numpy python-scipy
+sudo apt-get install python-pip
 
 # Window management
 apt-get -y install i3
@@ -35,11 +36,11 @@ dpkg-reconfigure wireshark-common
 usermod -a -G wireshark $USER
 
 # Git
-apt-get -y install git gitk
+sudo apt-get -y install git gitk
 git config --global core.editor "vim"
 git config --global user.email "cspensky@cs.ucsb.edu"
 git config --global user.name "Chad Spensky"
-apt-get -y install meld
+sudo apt-get -y install meld
 
 # Stop nautilis from being annoying
 gsettings set org.gnome.desktop.media-handling automount-open false
@@ -60,7 +61,7 @@ sudo apt-get -y install mercurial
 
 # i3 and i3 control utils
 sudo apt-get update
-sudo apt-get install i3 i3-wm i3blocks i3lock i3status 
+sudo apt-get install i3 i3-wm i3blocks i3lock i3status xss-lock xautolock
 sudo apt-get install pactl xbacklight
 cp /etc/i3blocks.conf ~/.i3/
 
@@ -69,3 +70,20 @@ sudo dpkg -i playerctl-0.5.0_amd64.deb
 
 # random build things
 sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
+
+sudo apt-get install cmake
+sudo apt-get install xbacklight
+
+# Spotify 
+snap install spotify
+
+# Developer tools
+snap install clion --classic
+sudo snap install pycharm-professional --classic
+
+sudo apt-get install scrot
+
+sudo apt-get install net-tools
+
+sudo snap install slack --classic
+sudo apt-get install feh
