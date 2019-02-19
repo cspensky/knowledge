@@ -75,14 +75,14 @@ sudo apt-get -y install xbacklight
 sudo snap install spotify
 
 # Developer tools
-snap install clion --classic
+sudo snap install clion --classic
 sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
+sudo snap install android-studio --classic
 
 # Graphics stuff
 sudo apt-get install -y scrot
 sudo apt-get install -y net-tools
-
 sudo apt-get install feh
 
 git clone https://github.com/libthinkpad/dockd.git
