@@ -1,0 +1,4 @@
+# Save this file (after modifying ID_VENDOR and ID_MODEL if necessary) as /etc/udev/rules.d/81-thinkpad-dock.rules
+
+# These values seem to work for "ThinkPad Mini Dock Plus Series 3"
+SUBSYSTEM=="pci", ACTION=="add|remove", ENV{PCI_ID}=="8086:15D3", RUN+="/usr/sbin/thinkpad-dock.sh"

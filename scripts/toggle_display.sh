@@ -5,14 +5,14 @@ INTERNAL_OUTPUT="eDP1"
 
 # if we don't have a file, start at zero
 if [ ! -f "/tmp/monitor_mode.dat" ] ; then
-  monitor_mode="all"
+  monitor_mode="ALL"
 
 # otherwise read the value from the file
 else
   monitor_mode=`cat /tmp/monitor_mode.dat`
 fi
 
-if [ $monitor_mode = "all" ]; then
+if [ $monitor_mode = "ALL" ]; then
         monitor_mode="EXTERNAL"
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT2 --auto
@@ -25,7 +25,7 @@ elif [ $monitor_mode = "INTERNAL" ]; then
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT2 --auto --same-as $INTERNAL_OUTPUT
 else
-        monitor_mode="all"
+        monitor_mode="ALL"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto --left-of $INTERNAL_OUTPUT
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT2 --auto --left-of $INTERNAL_OUTPUT
 fi

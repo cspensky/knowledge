@@ -25,7 +25,7 @@ sudo apt-get -y install openjdk-8-jdk
 sudo apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
 sudo apt-get -y install python-usb python-serial
 sudo apt-get -y install python-matplotlib pyhton-numpy python-scipy
-sudo apt-get install python-pip
+sudo apt-get -y install python-pip
 
 # Window management
 sudo apt-get -y install i3
@@ -48,6 +48,8 @@ sudo gsettings set org.gnome.desktop.media-handling automount-open false
 # Change our shell
 sudo apt-get -y install fish csh
 chsh -s `which fish`
+sudo pip install virtualfish
+cp config.fish ~/.config/fish/
 
 # Term stuff
 sudo apt-get -y install terminator
@@ -67,15 +69,16 @@ sudo dpkg -i playerctl-0.5.0_amd64.deb
 # random build things
 sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
 
+
 # i3 Stuff
 sudo apt-get -y install cmake
 sudo apt-get -y install xbacklight
-
+sudo apt-get -y install policykit-1-gnome
 # Spotify 
 sudo snap install spotify
 
 # Developer tools
-snap install clion --classic
+sudo snap install clion --classic
 sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
 
@@ -87,7 +90,22 @@ sudo apt-get install feh
 
 git clone https://github.com/libthinkpad/dockd.git
 
+# Android
+sudo apt-get -y install adb
+
 # SDA
-sudo add-apt-repository ppa:cspensky/sda
+sudo add-apt-repository ppa:cspensky/sda -y
 sudo apt-get update
-sudo apt-get install sda
+sudo apt-get -y install sda
+
+
+cd ~
+rm -rf Desktop 
+rm -rf Documents  
+rm -rf examples.desktop  
+rm -rf Music  
+rm -rf Pictures  
+rm -rf Public  
+rm -rf Templates  
+rm -rf Videos
+
