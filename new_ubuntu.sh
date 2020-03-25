@@ -83,9 +83,12 @@ sudo snap install android-studio --classic
 # Graphics stuff
 sudo apt-get install -y scrot
 sudo apt-get install -y net-tools
-sudo apt-get install feh
+sudo apt-get install -y feh
 
 git clone https://github.com/libthinkpad/dockd.git
+
+# Awesome tool for checking disk space
+sudo apt-get install -y ncdu
 
 # SDA
 sudo add-apt-repository ppa:cspensky/sda
