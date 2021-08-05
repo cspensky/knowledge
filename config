@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -116,6 +116,13 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+
+# move workspace to different screen
+#
+bindsym $mod+ctrl+Shift+Right move workspace to output right
+bindsym $mod+ctrl+Shift+Left move workspace to output left
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -156,7 +163,7 @@ bar {
 }
 
 # Lock screen
-bindsym $mod+ctrl+l exec /home/cspensky/scripts/lock_and_blur.sh
+bindsym $mod+ctrl+l exec /home/cspensky/projects/knowledge/scripts/lock_and_blur.sh
 
 # Media volume controls
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle && pkill -RTMIN+30 i3blocks 
@@ -164,17 +171,18 @@ bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%- && pkill -RTMIN+30 i3
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+ && pkill -RTMIN+30 i3blocks 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-bindsym XF86Display exec /home/cspensky/scripts/toggle_display.sh
-bindsym XF86WLAN exec /home/cspensky/scripts/toggle_wifi.sh
+bindsym XF86Display exec /home/cspensky/projects/knowledge/scripts/toggle_display.sh
+bindsym XF86WLAN exec /home/cspensky/projects/knowledge/scripts/toggle_wifi.sh
 
 
 # Startup
 exec --no-startup-id synergy
 exec --no-startup-id /opt/sda/bin/sda-gui --hidden
-exec --no-startup-id feh --bg-center ~/projects/shellphish/branding/wallpaper/minimal.png --image-bg=black
+exec --no-startup-id feh --bg-center ~/allthenticate/wallpaper.png --image-bg=black
 exec --no-startup-id nm-applet --sm-disable
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "/home/cspensky/scripts/lock_and_blur.sh" \
 #  -notify 30 \
 #  -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'"
-exec --no-startup-id xss-lock /home/cspensky/scripts/lock_and_blur.sh
+exec --no-startup-id xss-lock /home/cspensky/projects/knowledge/scripts/lock_and_blur.sh
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id dockd --daemon &

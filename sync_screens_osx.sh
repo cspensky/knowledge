@@ -1,4 +1,5 @@
-REMOTE_HOST="10.42.0.2"
+#!/bin/sh
+REMOTE_HOST="192.168.2.1"
 dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | ( 
 while true; 
 do read X; 

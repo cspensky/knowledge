@@ -23,9 +23,7 @@ sudo apt-get -y install openjdk-8-jdk
 
 # Useful libraries
 sudo apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
-sudo apt-get -y install python-usb python-serial
-sudo apt-get -y install python-matplotlib pyhton-numpy python-scipy
-sudo apt-get -y install python-pip
+sudo apt-get -y install python3-pip
 
 # Window management
 sudo apt-get -y install i3
@@ -38,7 +36,7 @@ sudo usermod -a -G wireshark $USER
 # Git
 sudo apt-get -y install git gitk
 git config --global core.editor "vim"
-git config --global user.email "cspensky@cs.ucsb.edu"
+git config --global user.email "chad@allthenticate.net"
 git config --global user.name "Chad Spensky"
 sudo apt-get -y install meld
 
@@ -63,11 +61,11 @@ sudo apt-get install pactl xbacklight
 cp config ~/.config/i3/config
 cp i3blocks.conf ~/.i3blocks.conf
 
-wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
-sudo dpkg -i playerctl-0.5.0_amd64.deb
+#wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
+#sudo dpkg -i playerctl-0.5.0_amd64.deb
 
 # random build things
-sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper
+sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper python3 python3-dev
 
 
 # i3 Stuff
@@ -88,15 +86,15 @@ sudo apt-get install -y net-tools
 
 sudo apt-get install feh
 
-git clone https://github.com/libthinkpad/dockd.git
+#git clone https://github.com/libthinkpad/dockd.git
 
 # Android
 sudo apt-get -y install adb
 
 # SDA
-sudo add-apt-repository ppa:cspensky/sda -y
-sudo apt-get update
-sudo apt-get -y install sda
+#sudo add-apt-repository ppa:cspensky/sda -y
+#sudo apt-get update
+#sudo apt-get -y install sda
 
 
 cd ~

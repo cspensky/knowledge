@@ -10,7 +10,7 @@ tmpbg='/tmp/screen.png'
 scrot "$tmpbg"
 
 # darken
-convert -brightness-contrast -50x20 "$tmpbg" "$tmpbg"
+convert -brightness-contrast -60x20 "$tmpbg" "$tmpbg"
 
 # blur the screenshot by resizing and scaling back up
 convert "$tmpbg" -filter Gaussian -thumbnail 20% -sample 500% "$tmpbg"
@@ -21,3 +21,5 @@ convert "$tmpbg" "$icon" -gravity center -composite "$tmpbg"
 # lock the screen with the blurred screenshot
 i3lock -i "$tmpbg"
 
+REMOTE_HOST="10.42.0.41"
+ssh $REMOTE_HOST "pmset displaysleepnow"
