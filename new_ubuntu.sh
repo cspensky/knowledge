@@ -79,17 +79,20 @@ sudo snap install spotify
 sudo snap install clion --classic
 sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
+sudo snap install android-studio --classic
 
 # Graphics stuff
 sudo apt-get install -y scrot
 sudo apt-get install -y net-tools
-
-sudo apt-get install feh
+sudo apt-get install -y feh
 
 #git clone https://github.com/libthinkpad/dockd.git
 
 # Android
 sudo apt-get -y install adb
+
+# Awesome tool for checking disk space
+sudo apt-get install -y ncdu
 
 # SDA
 #sudo add-apt-repository ppa:cspensky/sda -y
