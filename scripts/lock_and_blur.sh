@@ -21,5 +21,5 @@ convert "$tmpbg" "$icon" -gravity center -composite "$tmpbg"
 # lock the screen with the blurred screenshot
 i3lock -i "$tmpbg"
 
-REMOTE_HOST="10.42.0.41"
+REMOTE_HOST="169.254.1.2"
 ssh $REMOTE_HOST "pmset displaysleepnow"

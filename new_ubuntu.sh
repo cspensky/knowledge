@@ -48,6 +48,8 @@ sudo apt-get -y install fish csh
 chsh -s `which fish`
 sudo pip install virtualfish
 cp config.fish ~/.config/fish/
+cp fish_prompt.fish ~/.config/fish/functions/
+sudo apt-get -y install direnv
 
 # Term stuff
 sudo apt-get -y install terminator
@@ -60,6 +62,8 @@ sudo apt-get install i3 i3-wm i3blocks i3lock i3status xss-lock xautolock
 sudo apt-get install pactl xbacklight
 cp config ~/.config/i3/config
 cp i3blocks.conf ~/.i3blocks.conf
+# Needed for our lock screen blur
+sudo apt-get -y install imagemagick
 
 #wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
 #sudo dpkg -i playerctl-0.5.0_amd64.deb
@@ -94,12 +98,23 @@ sudo apt-get -y install adb
 # Awesome tool for checking disk space
 sudo apt-get install -y ncdu
 
+# Mysql workbench
+
+sudo snap install mysql-workbench-community
+# Ref: https://askubuntu.com/questions/1242026/cannot-connect-mysql-workbench-to-mysql-server
+sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
+
+# SQL Lite 3 Browser
+snap install sqlitebrowser
+
+
 # SDA
 #sudo add-apt-repository ppa:cspensky/sda -y
 #sudo apt-get update
 #sudo apt-get -y install sda
 
 
+# Get rid of this n00b stuff...
 cd ~
 rm -rf Desktop 
 rm -rf Documents  
