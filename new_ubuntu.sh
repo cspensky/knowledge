@@ -85,6 +85,7 @@ sudo snap install spotify
 # Developer tools
 sudo snap install clion --classic
 sudo snap install code --classic
+sudo snap install pre-commit --classic
 sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
 sudo snap install android-studio --classic
