@@ -28,6 +28,9 @@ sudo apt-get -y install python3-pip
 # Window management
 sudo apt-get -y install i3
 
+# Arandr to position screens etc.
+sudo apt-get -y install arandr
+
 # Wireshark
 sudo apt-get -y install wireshark
 sudo dpkg-reconfigure wireshark-common 
@@ -81,9 +84,12 @@ sudo snap install spotify
 
 # Developer tools
 sudo snap install clion --classic
+sudo snap install code --classic
 sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
 sudo snap install android-studio --classic
+sudo snap install gitkraken --classic
+
 
 # Graphics stuff
 sudo apt-get install -y scrot
