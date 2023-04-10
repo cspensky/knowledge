@@ -1,5 +1,8 @@
 # Making your Mac usable with a decent window manger
 
+## Yabai
+
+Be sure to disable SIP to use this window manager: https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
 
 ## skhd
 
