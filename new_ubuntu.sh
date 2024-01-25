@@ -1,9 +1,4 @@
 # Make sure only root can run our script
-if [ "$(id -u)" == "0" ]; then
-   echo "This script must not be run as root" 1>&2
-   exit 1
-fi
-
 sudo apt-get update
 
 # Install basic tools
@@ -19,14 +14,11 @@ sudo apt-get -y install tree
 sudo usermod -a -G dialout $USER
 
 # Basic developer tools
-sudo apt-get -y install openjdk-8-jdk 
+#sudo apt-get -y install openjdk-8-jdk 
 
 # Useful libraries
-sudo apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
+#sudo apt-get -y install lib32z1 lib32ncurses5 lib32bz2-1.0
 sudo apt-get -y install python3-pip
-
-# Window management
-sudo apt-get -y install i3
 
 # Arandr to position screens etc.
 sudo apt-get -y install arandr
@@ -39,9 +31,8 @@ sudo usermod -a -G wireshark $USER
 # Git
 sudo apt-get -y install git gitk
 git config --global core.editor "vim"
-git config --global user.email "chad@allthenticate.net"
+git config --global user.email "chad@allthenticate.com"
 git config --global user.name "Chad Spensky"
-sudo apt-get -y install meld
 
 # Stop nautilis from being annoying
 sudo gsettings set org.gnome.desktop.media-handling automount-open false
@@ -50,19 +41,21 @@ sudo gsettings set org.gnome.desktop.media-handling automount-open false
 sudo apt-get -y install fish csh
 chsh -s `which fish`
 sudo pip install virtualfish
+mkdir -p ~/.config/fish/functions/
 cp config.fish ~/.config/fish/
 cp fish_prompt.fish ~/.config/fish/functions/
 sudo apt-get -y install direnv
 
 # Term stuff
 sudo apt-get -y install terminator
-sudo apt-get -y install mercurial
+#sudo apt-get -y install mercurial
 
 
 # i3 and i3 control utils
 sudo apt-get update
-sudo apt-get install i3 i3-wm i3blocks i3lock i3status xss-lock xautolock
-sudo apt-get install pactl xbacklight
+sudo apt-get -y install i3 i3-wm i3blocks i3lock i3status xss-lock xautolock
+sudo apt-get -y install pactl xbacklight
+mkdir -p ~/.config/i3
 cp config ~/.config/i3/config
 cp i3blocks.conf ~/.i3blocks.conf
 # Needed for our lock screen blur
@@ -72,13 +65,13 @@ sudo apt-get -y install imagemagick
 #sudo dpkg -i playerctl-0.5.0_amd64.deb
 
 # random build things
-sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper python3 python3-dev
+#sudo apt-get -y install build-essential libtool g++ gcc texinfo curl wget automake autoconf python python-dev git subversion unzip virtualenvwrapper python3 python3-dev
 
 
 # i3 Stuff
 sudo apt-get -y install cmake
 sudo apt-get -y install xbacklight
-sudo apt-get -y install policykit-1-gnome
+#sudo apt-get -y install policykit-1-gnome
 # Spotify 
 sudo snap install spotify
 
