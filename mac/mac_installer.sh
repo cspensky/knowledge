@@ -33,9 +33,7 @@ brew install cocoapods
 
 
 # VS Code
-curl -L -O "https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
-unzip download
-mv Visual\ Studio\ Code.app /Applications 
+brew install --cask visual-studio-code
 open vscode:extension/Dart-Code.flutter
 
 
@@ -60,6 +58,10 @@ cp skhdrc ~/.config/skhd
 
 yabai --start-service
 skhd --start-service
+
+
+# iTerm
+brew install --cask iterm2
 
 # Fish (Ref: https://gist.github.com/idleberg/9c7aaa3abedc58694df5)
 brew install fish  
