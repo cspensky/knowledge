@@ -17,4 +17,3 @@ set background=dark
 set backupdir=~/.cache/vim
 set dir=~/.cache/vim
 
-set spell

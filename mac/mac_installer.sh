@@ -33,7 +33,7 @@ brew install --cask notion-calendar
 # App development
 brew install --cask android-studio
 sudo xcodebuild -license accept
-brew install --cask flutter
+brew install --cask android-commandlinetools
 brew install cocoapods
 
 # VS Code
@@ -79,7 +79,7 @@ chsh -s $(which fish)
 curl -L https://get.oh-my.fish | fish
 
 mkdir -p ~/.cache/vim
-cp .vimrc ~
+cp .vimrc ~/
 
 
 echo "NOTE: Running this more than once may add double entries to your config files"
