@@ -56,7 +56,7 @@ sudo apt-get update
 sudo apt-get -y install i3 i3-wm i3blocks i3lock i3status xss-lock xautolock
 sudo apt-get -y install pactl xbacklight
 mkdir -p ~/.config/i3
-cp config ~/.config/i3/config
+cp linux/config ~/.config/i3/config
 cp i3blocks.conf ~/.i3blocks.conf
 # Needed for our lock screen blur
 sudo apt-get -y install imagemagick
@@ -70,7 +70,7 @@ sudo apt-get -y install imagemagick
 
 # i3 Stuff
 sudo apt-get -y install cmake
-sudo apt-get -y install xbacklight
+#sudo apt-get -y install xbacklight
 #sudo apt-get -y install policykit-1-gnome
 # Spotify 
 sudo snap install spotify
@@ -113,6 +113,8 @@ snap install sqlitebrowser
 #sudo apt-get update
 #sudo apt-get -y install sda
 
+# Screenshot stuff
+sudo apt-get -y install flameshot
 
 # Get rid of this n00b stuff...
 cd ~
@@ -125,3 +127,6 @@ rm -rf Public
 rm -rf Templates  
 rm -rf Videos
 
+# Add our configs
+cp linux/.vimrc ~
+cp linux/.ideavimrc ~

@@ -6,3 +6,12 @@
 
 ## X1 Carbon stuff
 - [pkexec not working](https://qiita.com/cielavenir/items/bad3a62583acc088be9e)
+
+## Southwest Checkin Script
+- https://github.com/jdholtz/auto-southwest-check-in
+```bash
+docker pull jdholtz/auto-southwest-check-in
+```
+```bash
+docker run -d jdholtz/auto-southwest-check-in
+```

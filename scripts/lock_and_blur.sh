@@ -19,7 +19,5 @@ convert "$tmpbg" -filter Gaussian -thumbnail 20% -sample 500% "$tmpbg"
 convert "$tmpbg" "$icon" -gravity center -composite "$tmpbg"
 
 # lock the screen with the blurred screenshot
-i3lock -i "$tmpbg"
+i3lock -i /home/cspensky/allthenticate/wallpaper.png
 
-REMOTE_HOST="169.254.1.2"
-ssh $REMOTE_HOST "pmset displaysleepnow"
