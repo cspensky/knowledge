@@ -1,25 +1,24 @@
 #!/usr/bin/env bash
+# Allthenticate lock screen.
+#
+# Invoked by xss-lock (see the i3 config), which must own the i3lock process:
+# sda-service unlocks by calling logind's UnlockSessions(), and xss-lock is the
+# only thing listening for that -- it responds by killing the locker it started.
+# Hence `exec` below (i3lock inherits this pid) and `-n` (never fork away from
+# it). Break either and the phone can no longer dismiss the lock screen, and
+# logind's LockedHint goes stale so SDA reports the wrong lock state.
+set -euo pipefail
 
-# set the icon and a temporary location for the screenshot to be stored
-icon="$HOME/projects/knowledge/scripts/lock-icon.png"
-tmpbg='/tmp/screen.png'
+BG='#0d1117'
+LOGO_TINT='white'
+LOGO_FRAC=0.22
 
+img=$("$(dirname "$(readlink -f "$0")")/allthenticate_bg.sh" "$BG" "$LOGO_TINT" "$LOGO_FRAC" 2>/dev/null) || img=
 
-
-# take a screenshot
-scrot "$tmpbg"
-
-# darken
-convert -brightness-contrast -60x20 "$tmpbg" "$tmpbg"
-
-# blur the screenshot by resizing and scaling back up
-convert "$tmpbg" -filter Gaussian -thumbnail 20% -sample 500% "$tmpbg"
-
-# overlay the icon onto the screenshot
-convert "$tmpbg" "$icon" -gravity center -composite "$tmpbg"
-
-# lock the screen with the blurred screenshot
-i3lock -i "$tmpbg"
-
-REMOTE_HOST="169.254.1.2"
-ssh $REMOTE_HOST "pmset displaysleepnow"
+# Always lock, even if composing the image failed -- falling through to no lock
+# at all would be a security hole.
+if [ -n "$img" ] && [ -f "$img" ]; then
+    exec i3lock -n -i "$img"
+else
+    exec i3lock -n -c "${BG#\#}"
+fi

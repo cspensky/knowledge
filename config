@@ -163,7 +163,10 @@ bar {
 }
 
 # Lock screen
-bindsym $mod+ctrl+l exec /home/cspensky/projects/knowledge/scripts/lock_and_blur.sh
+bindsym Print exec flameshot gui
+# Go through logind so xss-lock owns the locker process; that is what lets
+# sda-service's UnlockSessions() dbus call actually dismiss the lock screen.
+bindsym $mod+ctrl+q exec --no-startup-id loginctl lock-session
 
 # Media volume controls
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle && pkill -RTMIN+30 i3blocks 
@@ -171,18 +174,21 @@ bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%- && pkill -RTMIN+30 i3
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+ && pkill -RTMIN+30 i3blocks 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-bindsym XF86Display exec /home/cspensky/projects/knowledge/scripts/toggle_display.sh
-bindsym XF86WLAN exec /home/cspensky/projects/knowledge/scripts/toggle_wifi.sh
+bindsym XF86Display exec /home/cspensky/knowledge/scripts/toggle_display.sh
+bindsym $mod+ctrl+Shift+d exec /home/cspensky/knowledge/scripts/toggle_display.sh
+bindsym XF86WLAN exec /home/cspensky/knowledge/scripts/toggle_wifi.sh
 
 
 # Startup
-exec --no-startup-id synergy
 exec --no-startup-id /opt/sda/bin/sda-gui --hidden
-exec --no-startup-id feh --bg-center ~/allthenticate/wallpaper.png --image-bg=black
+exec --no-startup-id /home/cspensky/knowledge/scripts/set_wallpaper.sh
 exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id xset -dpms && xset s off
 #exec --no-startup-id xautolock -detectsleep -time 5 -locker "/home/cspensky/scripts/lock_and_blur.sh" \
 #  -notify 30 \
 #  -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'"
-exec --no-startup-id xss-lock /home/cspensky/projects/knowledge/scripts/lock_and_blur.sh
+exec --no-startup-id xss-lock /home/cspensky/knowledge/scripts/lock_and_blur.sh
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dockd --daemon &
+exec --no-startup-id xinput set-button-map 11 1 1 3 4 5 6 7 8 9 10 11 12
+
