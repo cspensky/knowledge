@@ -18,3 +18,11 @@ xinput set-prop 12 "libinput Tapping Enabled" 1
 ```
 https://major.io/2021/07/18/tray-icons-in-i3/
 
+## Southwest Checkin Script
+- https://github.com/jdholtz/auto-southwest-check-in
+```bash
+docker pull jdholtz/auto-southwest-check-in
+```
+```bash
+docker run -d jdholtz/auto-southwest-check-in
+```
